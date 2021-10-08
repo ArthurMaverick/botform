@@ -7,7 +7,7 @@ Motivação: percebemos que preencher formulario várias vezes seguidas de forma
 
 ## niveis de automação do bot.
 
-nivel **wolf** atual de automação do bot.
+nivel **wolf** 
 - preencher um formulario específico varias vezes seguidas 
 
 nivel **tiger**
