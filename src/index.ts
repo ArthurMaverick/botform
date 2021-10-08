@@ -5,7 +5,7 @@ let limitCounter: number = 1
 if (limitCounter < 9_000){
   setInterval(
     async () => {
-    const browser = await puppeteer.launch({headless: true});
+    const browser = await puppeteer.launch({headless: false});
     const page = await browser.newPage();
     await page.goto('https://docs.google.com/forms/d/e/1FAIpQLSdK_JYYOMZulfSPqNxqJP4Zrkjb7XxTn3Cd1mPfw16qQ1kUJQ/viewform?fbzx=1421041915633150429', {
       waitUntil: 'networkidle2',
@@ -15,11 +15,11 @@ if (limitCounter < 9_000){
     await page.click('#i33')
     await page.click('#i94')
     await page.click('div[jsname="M2UYVd"]')
-    
     await browser.close()
-    limitCounter++
-    console.log(limitCounter++)
+
+    console.log('enviado', ++limitCounter, 'vezes' )
 }, 4_000);
 } else {
   console.log('Acabou!')
 }
+
