@@ -18,11 +18,6 @@ if (limitCounter < 9_000){
       await page.click('div[jsname="M2UYVd"]')
     });
 
-    await page.type('input[jsname="YPqjbf"]', 'test@example.com');
-    await page.click('#i9')
-    await page.click('#i43')
-    await page.click('div[jsname="M2UYVd"]')
-    
     await browser.close()
     console.log('enviado', ++limitCounter, 'vezes' )
   }, 6_000);
