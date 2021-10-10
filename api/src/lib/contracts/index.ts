@@ -12,12 +12,12 @@ export type TimersProps = {
 }
 
 export type ClickElementsProps ={
-  element: string
-  atribute: string
+  clickElement: string
+  ClickAtribute: string
 }
 
 export type TypeElementsProps ={
-  element: string
-  atribute: string
+  typeElement: string
+  typeAtribute: string
   textValue: string
 }
