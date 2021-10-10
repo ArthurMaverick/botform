@@ -2,7 +2,7 @@ import puppeteer from 'puppeteer';
 import {CreateBotProps} from '../contracts'
 import {addClick, addType} from '../functions/subfunctions'
 
-export const createBotProps = ({url,timers,clickElement,typeElement}: CreateBotProps) => {
+export const createBot = ({url,timers,elementGroup}: CreateBotProps) => {
   let limitCounter: number = 1
   
   if (limitCounter < timers.loops){
@@ -13,8 +13,16 @@ export const createBotProps = ({url,timers,clickElement,typeElement}: CreateBotP
       await page.goto(url, {waitUntil: 'networkidle2'});
       
       page.once('load', async () => {
-        await addClick(page, clickElement)
-        await addType(page, typeElement)
+
+        for (const group of elementGroup) {
+              if(group.options === 'click') {
+                await addClick(page, group.clickOptions)
+              }
+              if (group.options === 'type'){
+                await addType(page, group.typeOptions) 
+              }
+            
+          }
       });
 
       await page.close()
@@ -24,7 +32,6 @@ export const createBotProps = ({url,timers,clickElement,typeElement}: CreateBotP
   } else {
     console.log('Acabou!')
   }
-
   console.log('enviado', limitCounter++, 'vezes' )
 
 }

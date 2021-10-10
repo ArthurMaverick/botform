@@ -2,13 +2,18 @@
 export type CreateBotProps ={
   url: string,
   timers: TimersProps
-  clickElement?: ClickElementsProps[]
-  typeElement?: TypeElementsProps[],
+  elementGroup: ElementsGroup[]
 }
 
 export type TimersProps = { 
   timestoped: number
   loops: number
+}
+
+export type ElementsGroup = {
+    options: string
+    clickOptions: ClickElementsProps
+    typeOptions: TypeElementsProps
 }
 
 export type ClickElementsProps ={
@@ -21,3 +26,7 @@ export type TypeElementsProps ={
   typeAtribute: string
   textValue: string
 }
+
+
+
+

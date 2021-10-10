@@ -1,18 +1,18 @@
 import {ClickElementsProps,TypeElementsProps} from '../../contracts'
 import {Page} from 'puppeteer'
 
-export async function addClick(page: Page, clickElement?: ClickElementsProps[]) {
-  if(clickElement !== undefined && clickElement !== null)  {
-    for (const ele of clickElement) {
-      await page.click(`${ele.element}[${ele.atribute}]`)
-    }
+export async function addClick(page: Page, ele: ClickElementsProps) {
+  if(ele !== undefined) {
+    await page.click(`${ele.clickElement}[${ele.ClickAtribute}]`)
   }
 }
-export async function addType(page: Page, typeElement?: TypeElementsProps[]) {
-  if(typeElement !== undefined && typeElement !== null) {
-    for (const ele of typeElement) {
-      await page.type(`${ele.element}[${ele.atribute}]`, ele.textValue)
-    }
+
+export async function addType(page: Page, ele: TypeElementsProps) {
+  if(ele !== undefined) {
+      await page.type(`${ele.typeElement}[${ele.typeAtribute}]`, ele.textValue)
+      
+    
   }
-}
+}      
+
 
